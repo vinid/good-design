@@ -4,6 +4,21 @@ A Cursor Agent Skill for designing scientific posters, publication figures, plot
 
 The goal is simple: make research visuals that are clear enough for experts, polished enough for public presentation, and still editable as code.
 
+## Gallery
+
+<table>
+  <tr>
+    <td><img src="examples/swe_bench_lite_comparison.png" alt="SWE-bench Lite benchmark comparison" /></td>
+    <td><img src="examples/random_complex_plot.png" alt="Complex scatter and density plot" /></td>
+    <td><img src="examples/research_poster.png" alt="Research poster example" /></td>
+  </tr>
+  <tr>
+    <td><sub>Benchmark card with uncertainty</sub></td>
+    <td><sub>Complex plot with generated geometry</sub></td>
+    <td><sub>Claim-first research poster</sub></td>
+  </tr>
+</table>
+
 ## What This Skill Helps With
 
 - Research posters with one strong claim and clear supporting evidence
@@ -92,10 +107,12 @@ Cursor also discovers compatible skills from `.agents/skills/`, `.claude/skills/
 │   ├── grounded_fraud_instruction_variants.pdf
 │   ├── outcome_matrix.html
 │   ├── random_complex_plot.html
+│   ├── random_complex_plot.png
 │   ├── random_ridgeline_plot.html
+│   ├── research_poster.html
+│   ├── research_poster.png
 │   ├── swe_bench_lite_comparison.html
 │   ├── swe_bench_lite_comparison.png
-│   ├── research_poster.html
 │   └── vocal_cue_detection.html
 ├── scripts/
 │   ├── export_pdf.py
@@ -125,9 +142,7 @@ For complex plots, use Python as a geometry engine, not as the art director:
 
 ### Benchmark Comparison
 
-![SWE-bench Lite model comparison](examples/swe_bench_lite_comparison.png)
-
-`examples/swe_bench_lite_comparison.html` is a compact benchmark-card example: a claim-first title, grouped bars, visible uncertainty, direct value labels, and a source note in one export-ready HTML/SVG file. The embedded preview is a transparent PNG generated from that HTML.
+`examples/swe_bench_lite_comparison.html` is a compact benchmark-card example: a claim-first title, grouped bars, visible uncertainty, direct value labels, and a source note in one export-ready HTML/SVG file. The gallery preview is a transparent PNG generated from that HTML.
 
 Open these directly in a browser:
 
