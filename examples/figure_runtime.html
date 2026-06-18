@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GPUMode TriMul Competition Kernel Runtime</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    min-height: 100vh;
+    background: #ffffff;
+  }
+
+  body {
+    display: grid;
+    place-items: center;
+    padding: 32px;
+  }
+
+  .figure {
+    width: min(100%, 1400px);
+    background: #ffffff;
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .label {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 31px;
+    fill: #151515;
+  }
+
+  .label-small {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 27px;
+    fill: #151515;
+  }
+
+  .label-blue {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 31px;
+    fill: #4f72c9;
+  }
+
+  .axis-label {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 36px;
+    fill: #151515;
+  }
+
+  .title {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 34px;
+    fill: #151515;
+  }
+
+  .math {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 35px;
+    font-style: italic;
+    fill: #151515;
+  }
+
+  .annotation {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 24px;
+    font-style: italic;
+    fill: rgba(34, 52, 92, 0.68);
+  }
+
+  .legend {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 27px;
+    fill: #151515;
+  }
+</style>
+</head>
+<body>
+<main class="figure">
+<svg viewBox="0 0 1800 520" role="img" aria-label="GPUMode TriMul Competition Kernel Runtime on H100">
+  <rect width="1800" height="520" fill="#ffffff" />
+
+  <path d="M2 371H1798" stroke="#111111" stroke-width="4" />
+
+  <path d="M22 371
+           C46 371 59 314 86 306
+           C119 296 145 341 172 337
+           C209 332 205 96 231 69
+           C254 45 264 85 272 139
+           C282 212 282 290 307 321
+           C331 349 366 366 427 371
+           Z"
+        fill="rgba(76, 122, 209, 0.53)"
+        stroke="#4f72c9"
+        stroke-width="5"
+        stroke-linejoin="round" />
+
+  <path d="M133 371
+           C162 367 186 304 210 269
+           C232 237 260 249 282 299
+           C298 335 322 363 362 371
+           Z"
+        fill="rgba(135, 135, 135, 0.46)"
+        stroke="#222222"
+        stroke-width="5"
+        stroke-linejoin="round" />
+
+  <path d="M348 371
+           C382 371 419 356 463 352
+           C509 348 544 365 588 371
+           Z"
+        fill="rgba(76, 122, 209, 0.48)"
+        stroke="#4f72c9"
+        stroke-width="5"
+        stroke-linejoin="round" />
+
+  <path d="M478 371
+           C548 369 613 351 675 319
+           C735 288 781 239 829 235
+           C880 231 925 285 976 319
+           C1024 351 1082 368 1130 371
+           Z"
+        fill="rgba(76, 122, 209, 0.53)"
+        stroke="#4f72c9"
+        stroke-width="5"
+        stroke-linejoin="round" />
+
+  <path d="M980 371
+           C1042 369 1102 349 1150 312
+           C1199 275 1234 230 1282 225
+           C1338 219 1378 285 1430 321
+           C1473 350 1526 368 1575 371
+           Z"
+        fill="rgba(76, 122, 209, 0.53)"
+        stroke="#4f72c9"
+        stroke-width="5"
+        stroke-linejoin="round" />
+
+  <path d="M1445 371
+           C1494 366 1546 349 1590 318
+           C1640 283 1678 235 1712 231
+           C1752 226 1767 307 1772 371
+           Z"
+        fill="rgba(76, 122, 209, 0.53)"
+        stroke="#4f72c9"
+        stroke-width="5"
+        stroke-linejoin="round" />
+
+  <line x1="443" y1="203" x2="443" y2="371" stroke="#111111" stroke-width="4" stroke-dasharray="14 10" />
+  <line x1="638" y1="97" x2="638" y2="371" stroke="#111111" stroke-width="4" stroke-dasharray="14 10" />
+  <line x1="1560" y1="106" x2="1560" y2="371" stroke="#111111" stroke-width="4" stroke-dasharray="14 10" />
+  <line x1="1772" y1="91" x2="1772" y2="371" stroke="#4f72c9" stroke-width="4" stroke-dasharray="14 10" />
+
+  <text x="55" y="264" class="math">~ π<tspan baseline-shift="sub" font-size="22">θ</tspan><tspan baseline-shift="sub" font-size="19">0</tspan></text>
+
+  <text x="365" y="252" class="label">Best-of-25600</text>
+  <text x="396" y="287" class="label-small">(5352μs)</text>
+
+  <text x="555" y="186" class="label">5th Human</text>
+  <text x="563" y="222" class="label-small">(3655μs)</text>
+
+  <text x="770" y="283" class="math">~ π<tspan baseline-shift="sub" font-size="22">θ</tspan><tspan baseline-shift="sub" font-size="19">9</tspan></text>
+  <text x="751" y="334" class="annotation">mixed</text>
+  <text x="741" y="362" class="annotation">precision</text>
+
+  <text x="1205" y="278" class="math">~ π<tspan baseline-shift="sub" font-size="22">θ</tspan><tspan baseline-shift="sub" font-size="19">24</tspan></text>
+  <text x="1215" y="320" class="annotation">fusing all</text>
+  <text x="1201" y="348" class="annotation">core operations</text>
+
+  <text x="1613" y="326" class="annotation">deeper fusion</text>
+  <text x="1629" y="316" class="math">~ π<tspan baseline-shift="sub" font-size="22">θ</tspan><tspan baseline-shift="sub" font-size="19">49</tspan></text>
+
+  <text x="1466" y="193" class="label">Best Human</text>
+  <text x="1489" y="230" class="label-small">(1371μs)</text>
+
+  <text x="1666" y="147" class="label-blue">Best from</text>
+  <text x="1645" y="184" class="label-blue">TTT-Discover</text>
+  <text x="1683" y="221" class="label-blue">(1161μs)</text>
+
+  <rect x="830" y="143" width="56" height="24" fill="rgba(76, 122, 209, 0.53)" stroke="#4f72c9" stroke-width="5" />
+  <text x="904" y="165" class="legend">TTT-Discover</text>
+  <rect x="830" y="190" width="56" height="24" fill="rgba(135, 135, 135, 0.46)" stroke="#222222" stroke-width="5" />
+  <text x="904" y="213" class="legend">Best-of-N</text>
+  <rect x="812" y="124" width="350" height="119" fill="none" stroke="#dddddd" stroke-width="3" rx="4" />
+
+  <text x="0" y="430" class="axis-label">Slowest</text>
+  <text x="1797" y="430" text-anchor="end" class="axis-label">Fastest</text>
+  <text x="900" y="429" text-anchor="middle" class="title">GPUMode TriMul Competition Kernel Runtime (H100)</text>
+</svg>
+</main>
+</body>
+</html>
