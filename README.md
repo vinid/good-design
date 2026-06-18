@@ -127,7 +127,7 @@ For complex plots, use Python as a geometry engine, not as the art director:
 
 ![SWE-bench Lite model comparison](examples/swe_bench_lite_comparison.png)
 
-`examples/swe_bench_lite_comparison.html` is a compact benchmark-card example: a claim-first title, grouped bars, visible uncertainty, direct value labels, and a source note in one export-ready HTML/SVG file.
+`examples/swe_bench_lite_comparison.html` is a compact benchmark-card example: a claim-first title, grouped bars, visible uncertainty, direct value labels, and a source note in one export-ready HTML/SVG file. The embedded preview is a transparent PNG generated from that HTML.
 
 Open these directly in a browser:
 

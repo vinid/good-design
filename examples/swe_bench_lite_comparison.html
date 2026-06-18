@@ -25,7 +25,7 @@
       min-height: 100vh;
       display: grid;
       place-items: center;
-      background: #eef2f7;
+      background: transparent;
       color: var(--ink);
       font-family: Sora, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
@@ -33,10 +33,10 @@
     .card {
       width: 1040px;
       padding: 42px 48px 34px;
-      background: var(--paper);
-      border: 1px solid #dbe3ee;
-      border-radius: 28px;
-      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .eyebrow {
@@ -136,9 +136,6 @@
     <svg viewBox="0 0 944 560" role="img" aria-labelledby="title desc" xmlns="http://www.w3.org/2000/svg">
       <title id="title">SWE-bench Lite comparison between GPT-5.4-mini and Claude Opus 4.8</title>
       <desc id="desc">Grouped bar chart. GPT-5.4-mini scores 58 percent solve rate and 72 percent pass at 10. Claude Opus 4.8 scores 80 percent solve rate and 92 percent pass at 10. Confidence intervals are shown for each value.</desc>
-
-      <rect x="0" y="0" width="944" height="560" rx="18" fill="#f8fafc" />
-      <rect x="72" y="54" width="814" height="390" rx="14" fill="#ffffff" />
 
       <line x1="132" y1="384" x2="848" y2="384" stroke="#0f172a" stroke-width="1.5" />
       <line x1="132" y1="72" x2="132" y2="384" stroke="#0f172a" stroke-width="1.5" />
