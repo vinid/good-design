@@ -36,7 +36,7 @@ Manual install:
 
 ```bash
 mkdir -p ~/.cursor/skills
-git clone https://github.com/vinid/design-good-figures ~/.cursor/skills/poster-figure-design
+git clone https://github.com/vinid/design-good-figures ~/.cursor/skills/design-good-figures
 ```
 
 ## Repository Structure

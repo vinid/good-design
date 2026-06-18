@@ -56,6 +56,12 @@ Rules:
 
 Apply Tufte principles from `references/tufte-principles.md` and `references/analytical-design.md`.
 
+Data integrity:
+
+- Do not hallucinate values. If point estimates, denominators, uncertainty bounds, labels, units, or source details are missing, ask the user before drawing them.
+- Do not digitize values from an image by eye unless the user explicitly asks for an estimated reconstruction.
+- If uncertainty bounds are unavailable, omit the whiskers and say they are unavailable instead of drawing plausible-looking intervals.
+
 Checklist:
 
 - Show data variation, not design variation.
@@ -68,6 +74,13 @@ Checklist:
 - Make legends small; prefer direct labels when space allows.
 - If the visual effect exaggerates the data effect, fix the scale.
 - Every non-data element must earn its ink.
+
+Layout collision checks:
+
+- Reserve explicit lanes for title, subtitle, legend, plot area, axis labels, tick labels, value labels, uncertainty marks, annotations, badges, and source notes before drawing.
+- Value labels should sit in a different vertical band from whisker caps and callout badges.
+- Put improvement badges outside the plot area or between groups only when they have enough clear space.
+- Check the exported image, not only the browser preview. If any text, whisker, badge, legend, or caption overlaps, change the layout rather than shrinking text until it becomes unreadable.
 
 For tables:
 
@@ -125,6 +138,8 @@ Rules:
 
 ## Common Failure Modes
 
+- **Hallucinated values:** missing means, confidence intervals, denominators, or labels were guessed from the image. Ask the user or omit the unavailable element.
+- **Overlapping labels:** value labels, whiskers, badges, legends, or captions share the same lane. Reserve separate lanes and verify the exported output.
 - **Beautiful but wrong:** geometry or scale changed while recreating a paper figure. Measure the source.
 - **PNG masquerading as HTML:** user asked for editable figure but got an image crop. Rebuild in SVG.
 - **Pixel-traced SVG:** faithful but not editable. Use only if asked for exact pixel reproduction.
