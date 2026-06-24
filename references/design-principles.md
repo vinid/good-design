@@ -15,6 +15,7 @@ Rules:
 - Keep labels close to the data they explain.
 - Do not use random bold text. Bold only when it changes the read order.
 - Load local `woff2` fonts for export-heavy posters.
+- Control headline line breaks explicitly: glue words with `&nbsp;`, force breaks with `<br>`, and set a `max-width` in `ch`. Auto-wrap is not trustworthy at display sizes — orphan words (`time`, `Best-of-N`) break across lines. Verify the break in the screenshot, not the browser.
 
 ## Color
 
@@ -74,6 +75,7 @@ Checklist:
 - Use the same scale across small multiples.
 - Make legends small; prefer direct labels when space allows.
 - If the visual effect exaggerates the data effect, fix the scale.
+- If length or position encodes a value, the highlighted or "best" mark must be extremal in that encoding — the longest bar, or the shortest when lower is better. Decide the direction once and make axis, ticks, marks, and highlight all obey it. A "best" mark that is not extremal is a Lie Factor ≠ 1 error, not a style nitpick.
 - Every non-data element must earn its ink.
 
 Layout collision checks:
@@ -138,6 +140,7 @@ Rules:
 - If a claim sounds like marketing, replace it with evidence.
 - Do not oversell beyond the paper. Bend framing, not facts.
 - Do not invent conceptual labels, mechanisms, implications, or captions to make the figure feel more complete.
+- Captions and claims must be technically defensible by someone who knows the method, not merely non-promotional. A caption an expert would flag — a misleading comparison, an unsupported causal read ("faster policy", "the average barely moves" implying luck) — is a chartjunk-grade failure even when the picture is clean.
 - Mention uncertainty or caveats only when the visual claim needs them.
 
 ## Common Failure Modes

@@ -1,6 +1,13 @@
 # Export Recipes
 
-Always inspect the exported PNG/PDF, not only the browser view.
+Inspect the exported PNG/PDF, not only the browser view — run the verify loop in
+`SKILL.md`. These are the export commands it uses.
+
+Current headless Chrome notes: use bare `--headless` (the old headless mode was removed
+in Chrome 132; `--headless=new` is now redundant). `--disable-gpu` has been unnecessary
+since 2021. `--virtual-time-budget` is still supported and lets time-dependent rendering
+settle before capture. Prefer serving over `http://localhost` rather than `file://` when
+fonts, fetches, or scripts must load.
 
 ## Background Removal
 
@@ -16,7 +23,7 @@ Treat background removal as part of the figure, not as cleanup after export.
 ## Chrome Poster Export
 
 ```bash
-chrome --headless --disable-gpu \
+chrome --headless \
   --force-device-scale-factor=3 \
   --window-size=1080,1200 \
   --virtual-time-budget=4000 \
@@ -27,8 +34,12 @@ Use a taller window than the card height to avoid clipping.
 
 ## Chrome PDF Export
 
+Single-page posters and figures only. For multi-slide HTML decks (Reveal.js etc.), do
+**not** use `--print-to-pdf` — it reflows to a print layout, not the slide viewports. See
+`references/slide-decks.md` for the screenshot-per-slide → stitch path.
+
 ```bash
-chrome --headless --disable-gpu \
+chrome --headless \
   --print-to-pdf=output.pdf \
   --print-to-pdf-no-header \
   --no-pdf-header-footer input.html

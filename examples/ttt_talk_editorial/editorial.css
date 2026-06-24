@@ -1,0 +1,142 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   TTT-Discover — "Field notes" deck
+   Light, precise, Tufte-grade. Warm paper, near-black ink, gray for
+   baselines, ONE green signal reserved for our result. Type: Space Grotesk
+   (display) · Inter (body) · JetBrains Mono (numbers/labels).
+   Deliberately distinct from the slate-card deck AND the dark poster.
+   ───────────────────────────────────────────────────────────────────────── */
+
+:root {
+    --paper:    #faf8f3;   /* page — warm near-white */
+    --panel:    #f1ede3;   /* faint fill for areas */
+    --ink:      #1a1714;   /* near-black, warm */
+    --ink-soft: #5a544b;   /* secondary text */
+    --muted:    #8c857a;   /* labels, baselines */
+    --faint:    #c2bbac;   /* faint dots, soft marks */
+    --rule:     #e7e1d4;   /* hairline */
+    --rule-2:   #d6cfbf;   /* slightly stronger hairline */
+
+    --signal:   #157f4f;   /* green — OUR result / improvement (data only) */
+    --signal-2: #0e5e3a;   /* deep green for text on light */
+    --signal-soft: #e2efe7;
+
+    --sans:  'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --disp:  'Space Grotesk', 'Inter', sans-serif;
+    --mono:  'JetBrains Mono', ui-monospace, Menlo, monospace;
+}
+
+html, body { background: var(--paper); }
+.reveal-viewport { background: var(--paper) !important; }
+
+.reveal {
+    font-family: var(--sans);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+}
+.reveal .slides { text-align: left; }
+.reveal .slides section { padding: 0; height: 100%; }
+::selection { background: var(--signal); color: #fff; }
+
+/* Full-bleed frame, consistent margins on every slide */
+.ed {
+    position: absolute; inset: 0;
+    padding: 52px 84px 44px;
+    display: flex; flex-direction: column;
+}
+
+/* ── Folio rules (top + bottom) ────────────────────────────────────────── */
+.folio {
+    display: flex; align-items: center; justify-content: space-between;
+}
+.folio.top    { border-bottom: 1px solid var(--rule-2); padding-bottom: 14px; }
+.folio.bottom { border-top: 1px solid var(--rule-2); padding-top: 14px; margin-top: auto; }
+
+.kicker {
+    font-family: var(--mono);
+    font-size: 12.5px; font-weight: 600;
+    letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--ink-soft);
+    display: flex; align-items: center; gap: 11px;
+}
+.kicker .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--signal); }
+.folio .ref {
+    font-family: var(--mono);
+    font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+}
+.pageno { font-family: var(--mono); font-size: 12.5px; color: var(--faint); letter-spacing: 0.1em; }
+
+/* ── Type ──────────────────────────────────────────────────────────────── */
+.disp {
+    font-family: var(--disp);
+    font-weight: 600;
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin: 0;
+}
+.d-xl { font-size: 84px; }
+.d-l  { font-size: 62px; }
+.d-m  { font-size: 44px; }
+.d-s  { font-size: 32px; }
+
+.sig  { color: var(--signal-2); }
+.q    { color: var(--ink-soft); }      /* quieter ink, for contrast lines */
+
+.lede {
+    font-family: var(--sans);
+    font-size: 20px; line-height: 1.5; color: var(--ink-soft);
+    max-width: 34ch; font-weight: 400;
+}
+.lede strong { color: var(--ink); font-weight: 600; }
+
+.tag {
+    font-family: var(--mono);
+    font-size: 12.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted);
+}
+.mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+/* the method one-liner pill (used once, on the opener) */
+.method {
+    display: inline-flex; align-items: baseline; gap: 10px;
+    font-family: var(--mono); font-size: 15px; color: var(--ink-soft);
+    border-left: 2px solid var(--signal); padding-left: 14px;
+}
+.method b { color: var(--ink); font-weight: 600; }
+
+/* ── Figures ───────────────────────────────────────────────────────────── */
+.grow { flex: 1; display: flex; min-height: 0; }
+.fig  { width: 100%; height: auto; display: block; }
+.fit  { height: 100%; width: auto; max-width: 100%; display: block; }
+
+.cap {
+    font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.02em;
+    color: var(--muted); line-height: 1.6;
+}
+
+/* photo treated to harmonize with the warm-paper palette */
+.photo {
+    width: 100%; height: 320px; object-fit: cover; object-position: 50% 28%;
+    border-radius: 4px; border: 1px solid var(--rule-2);
+    filter: grayscale(1) sepia(0.20) contrast(1.04) brightness(1.02);
+}
+
+/* chips + pull-quotes (about / takeaway / validation) */
+.chip {
+    font-family: var(--mono); font-size: 13px; color: var(--ink-soft);
+    border: 1px solid var(--rule-2); border-radius: 999px; padding: 8px 15px;
+    white-space: nowrap;
+}
+.chip b { color: var(--signal-2); font-weight: 600; }
+
+.quote { border-left: 3px solid var(--signal); padding: 4px 0 4px 22px; }
+.quote p { font-family: var(--sans); font-size: 17.5px; line-height: 1.55; color: var(--ink); font-style: italic; margin: 0; }
+.quote .by { display: block; font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin-top: 14px; font-style: normal; letter-spacing: 0.02em; }
+
+/* ── Reveal chrome ─────────────────────────────────────────────────────── */
+.reveal .controls { color: var(--faint); }
+.reveal .progress { color: var(--signal); height: 2px; }
+.reveal .fragment.fade-in { transition: opacity .3s ease; }

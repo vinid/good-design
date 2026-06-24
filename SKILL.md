@@ -1,11 +1,11 @@
 ---
-name: design-good-figures
-description: Design and critique high-quality scientific posters, plots, and publication figures in HTML/SVG. Use when creating or improving research posters, paper figures, SVG charts, benchmark visuals, diagrams, annotated screenshots, or export-ready visual assets. Includes copy-pasteable HTML/SVG templates, Tufte references, export scripts, and contained examples.
+name: good-design
+description: Design and critique high-quality scientific posters, slide decks, plots, and publication figures in HTML/SVG. Use when creating or improving research posters, talk slides or presentation decks, paper figures, SVG charts, benchmark visuals, diagrams, annotated screenshots, or export-ready visual assets. Includes copy-pasteable HTML/SVG templates, Tufte references, export scripts, and contained examples.
 ---
 
 # Design Good Figures
 
-Design research visuals that survive expert scrutiny, communicate the result quickly, and export cleanly. Use this skill for HTML/SVG posters, paper figures, plots, diagrams, and annotated screenshots.
+Design research visuals that survive expert scrutiny, communicate the result quickly, and export cleanly. Use this skill for HTML/SVG posters, slide decks, paper figures, plots, diagrams, and annotated screenshots.
 
 ## Quick Start
 
@@ -13,7 +13,7 @@ Before writing code:
 
 1. State the claim in one sentence.
 2. Name the comparison: baseline, human, previous SOTA, condition, or model.
-3. Pick the figure type: poster, plot, matrix, small multiple, benchmark chart, diagram, or annotated screenshot.
+3. Pick the artifact type: poster, slide deck, plot, matrix, small multiple, benchmark chart, diagram, or annotated screenshot. A deck is a sequence of single-claim slides, not one canvas — see `references/slide-decks.md`.
 4. Inventory every value and text element needed for the visual: point estimates, denominators, uncertainty bounds, labels, units, dates, source text, captions, and framing terms.
 5. If any required value, caption, label, or concept is missing, ask the user. Do not infer, estimate, digitize from pixels, invent captions, or add "approximate" values unless the user explicitly asks for estimation.
 6. Choose one visual hierarchy: title, evidence, source.
@@ -21,6 +21,17 @@ Before writing code:
 8. Build the figure as editable HTML/SVG unless the user explicitly asks for a raster image.
 
 Use numbers in the claim when possible: `$500`, `2x faster`, `1st place`, `16x larger improvement`.
+
+## The Verify Loop
+
+Build in a tight loop, not in one shot. The rendered image is the source of truth — never trust the DOM or the code to tell you it looks right.
+
+1. Edit one figure, panel, or slide.
+2. Screenshot that one at final size (see `references/export-recipes.md`).
+3. Look at the image, not the code.
+4. Fix what the image reveals. Repeat.
+
+Budget a screenshot for any change touching geometry, SVG marks, labels, diagrams, or wrapping. Trivial copy tweaks do not need one. Mechanical layout discipline lives in `references/execution-discipline.md`.
 
 ## Which Reference To Load
 
@@ -30,6 +41,8 @@ Use numbers in the claim when possible: `$500`, `2x faster`, `1st place`, `16x l
 - `references/design-principles.md`: typography, color, Tufte rules, plot selection, copy rules, failure modes.
 - `references/tufte-principles.md`: graphical excellence, integrity, data-ink, chartjunk, small multiples, data density.
 - `references/analytical-design.md`: analytical design, sparklines, layering, micro/macro design, causality.
+- `references/execution-discipline.md`: the verify loop, SVG containment, diagram hygiene.
+- `references/slide-decks.md`: multi-slide deck structure, per-slide capture, deck PDF export, pagination.
 - `references/export-recipes.md`: Chrome and Playwright export commands and scripts.
 - `references/examples.md`: local files worth copying from.
 
@@ -45,9 +58,15 @@ Before calling a poster or figure done:
 - [ ] No missing values, captions, mechanisms, interpretations, or concepts were guessed, digitized from pixels, or silently approximated.
 - [ ] Labels, legends, value text, whiskers, callouts, badges, and captions do not overlap at the final export size.
 - [ ] Repeated elements use consistent spacing: equal offsets for comparable badges, labels, bars, callouts, and group gaps unless data encodes the difference.
-- [ ] Color has stable meaning.
+- [ ] Highlighted or "best" marks are extremal in whatever length or position encodes.
+- [ ] Color has stable meaning — the same meaning across every slide in a deck.
 - [ ] The figure works in grayscale if color is removed.
+- [ ] No element exceeds its parent box, checked in the rendered image.
+- [ ] Labels clear lines and other labels (≥ 8px when space is tight).
+- [ ] Diagrams use one arrow style and one reading direction.
+- [ ] Headline line breaks are intentional, verified in the screenshot.
 - [ ] Text survives export at final size.
 - [ ] Background removal was handled deliberately: transparent for paper/slide assets, visible only when the background is part of the design.
-- [ ] The output file was checked, not just the browser.
+- [ ] The output file was checked in the verify loop, not just the browser.
+- [ ] Captions are technically defensible by an expert, not just non-promotional.
 - [ ] No chartjunk, fake precision, or marketing filler.

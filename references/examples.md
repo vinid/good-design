@@ -16,6 +16,12 @@ Use these files as concrete references when designing new visuals.
 - `examples/random_complex_plot.html`: random complex plot showing Python-generated geometry finished in HTML/SVG style.
 - `examples/random_ridgeline_plot.html`: random ridgeline density plot generated from a support script.
 
+## Slide Decks
+
+- `examples/ttt_talk_editorial/index.html`: a full Reveal.js talk deck (warm-paper editorial style — Inter / Space Grotesk / JetBrains Mono, folio chrome, one green signature accent, inline SVG figures). `editorial.css` is the shared shell; `ttt_talk_editorial_standard_slides_HQ.pdf` is the stitched HQ export.
+
+**This is ONE example, not a template.** It shows the deck principles in `references/slide-decks.md` made concrete — a sequence of single-claim slides, consistent chrome, stable color meaning, per-slide structure. Decks do **not** need to look like this. Match the deck's visual identity to the talk, audience, and content; copy the discipline (sequence, one claim per slide, shared shell, stable color, per-slide verification), not the editorial styling.
+
 ## Recreated Paper Plots
 
 - `examples/figure_runtime.html`: LaTeX-style paper plot recreation. Use SVG geometry, not PNG crops, for editable figures.
